@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import ShoppingList from './ShoppingList';
 
 // Below is called as controlled component
 class Square1 extends React.Component {
@@ -184,29 +185,15 @@ class Game extends React.Component {
 
 }
 
-class ShoppingList extends React.Component {
-    render() {
-        return (
-            <div className="shopping-list">
-                <h1>Shopping List for {this.props.name}</h1>
-                <ul>
-                    <li>Instagram</li>
-                    <li>WhatsApp</li>
-                    <li>Oculus</li>
-                </ul>
-            </div>
-        );
-    }
-}
-
 // ========================================
 
 ReactDOM.render(
-    // <ShoppingList />,
-    // <ShoppingList name="Ramesh" />,
     <Game />,
     document.getElementById('root')
 );
+
+ReactDOM.render(<ShoppingList name="Ramesh" />, document.getElementById('root1'));
+
 
 function calculateWinner(squares) {
     const lines = [
@@ -226,4 +213,37 @@ function calculateWinner(squares) {
         }
     }
     return null;
+}
+
+// on click can be written below ways...
+
+class LoggingButton extends React.Component {
+    // This syntax ensures `this` is bound within handleClick.
+    // Warning: this is *experimental* syntax.
+    handleClick = () => {
+        console.log('this is:', this);
+    }
+
+    render() {
+        return (
+            <button onClick={this.handleClick}>
+                Click me
+            </button>
+        );
+    }
+}
+
+class LoggingButton1 extends React.Component {
+    handleClick() {
+        console.log('this is:', this);
+    }
+
+    render() {
+        // This syntax ensures `this` is bound within handleClick
+        return (
+            <button onClick={() => this.handleClick()}>
+                Click me
+            </button>
+        );
+    }
 }

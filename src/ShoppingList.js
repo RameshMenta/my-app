@@ -1,3 +1,4 @@
+import React from 'react';
 class ShoppingList extends React.Component {
     render() {
         return (
@@ -12,3 +13,5 @@ class ShoppingList extends React.Component {
         );
     }
 }
+
+export default ShoppingList;
