@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import ShoppingList from './ShoppingList';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Below is called as controlled component
 class Square1 extends React.Component {
